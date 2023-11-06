@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,8 +15,8 @@ public class Bookstore {
     private String bookName;
     private String bookInfo;
     private String userName;
-    private String date;
-    private Long password;
+    private LocalDate date;
+    private Integer password;
 
     public Bookstore(BookRequestDto requestDto) {
         this.bookName = requestDto.getBookName();
@@ -23,4 +25,13 @@ public class Bookstore {
         this.date = requestDto.getDate();
 
     }
+
+    public void update(BookRequestDto requestDto) {
+        this.bookName = requestDto.getBookName();
+        this.userName = requestDto.getUserName();
+        this.bookInfo = requestDto.getBookInfo();
+        this.date = requestDto.getDate();
+
+    }
+
 }
